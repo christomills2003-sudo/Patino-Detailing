@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patiño Auto Detailing & Restoration</title>
+  <meta name="description" content="Patiño Auto Detailing & Restoration provides interior detailing, exterior detailing, and headlight restoration with careful, quality-focused work. Call or text 706.508.9677." />
+
+  <style>
+    :root {
+      --black: #050607;
+      --panel: #0d1117;
+      --panel-2: #121820;
+      --blue: #9edcff;
+      --blue-strong: #5fc2ff;
+      --white: #f6f8fb;
+      --muted: #a9b4c0;
+      --line: rgba(158, 220, 255, 0.35);
+      --radius: 18px;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(5, 6, 7, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .logo strong {
+      color: var(--blue);
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .call-btn,
+    .btn-primary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      border: 1px solid var(--blue-strong);
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .call-btn,
+    .btn-primary {
+      background: var(--blue);
+      color: #041018;
+    }
+
+    .btn-outline {
+      color: var(--blue);
+      background: transparent;
+    }
+
+    .call-btn:hover,
+    .btn-primary:hover,
+    .btn-outline:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 22px 0 34px;
+      background: #000;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .business-card-header {
+      width: min(100%, 860px);
+      margin: 0 auto;
+      border: 1px solid rgba(158, 220, 255, 0.22);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.36);
+    }
+
+    .business-card-header img {
+      width: 100%;
+      display: block;
+      object-fit: contain;
+      height: auto;
+    }
+
+    .hero-quick-action {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-heading .label {
+      color: var(--blue);
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      margin-top: 8px;
+      letter-spacing: -0.04em;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: 12px auto 0;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .main-service {
+      background: linear-gradient(135deg, rgba(158, 220, 255, 0.14), rgba(13,17,23,0.96));
+      border: 1px solid rgba(158, 220, 255, 0.36);
+      border-radius: 26px;
+      padding: 34px;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.34);
+    }
+
+    .main-service .badge {
+      display: inline-flex;
+      width: auto;
+      height: auto;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(158, 220, 255, 0.16);
+      color: var(--blue);
+      border: 1px solid rgba(158, 220, 255, 0.3);
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    .main-service h3 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+      letter-spacing: -0.04em;
+    }
+
+    .main-service p {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.75;
+    }
+
+    .service-widgets {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service {
+      background: linear-gradient(180deg, rgba(13,17,23,0.96), rgba(9,12,18,0.96));
+      border: 1px solid rgba(158, 220, 255, 0.22);
+      border-radius: 20px;
+      padding: 24px;
+      min-height: 220px;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.24);
+    }
+
+    .service:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.34);
+    }
+
+    .service span {
+      display: inline-flex;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: rgba(158, 220, 255, 0.12);
+      color: var(--blue);
+      border: 1px solid rgba(158, 220, 255, 0.25);
+      font-weight: 900;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .service h3 {
+      color: var(--white);
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .gallery-section {
+      background: var(--panel);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .category {
+      margin-top: 34px;
+    }
+
+    .category-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .category-title h3 {
+      color: #041018;
+      background: var(--blue);
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .category-title::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--line);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .photo-card {
+      background: var(--black);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .photo-card img {
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .photo-card.before img {
+      filter: brightness(0.86) contrast(0.92) saturate(0.92);
+    }
+
+    .photo-card.after img {
+      filter: brightness(1.08) contrast(1.16) saturate(1.08);
+    }
+
+    .photo-card p {
+      padding: 12px 14px;
+      color: var(--white);
+      font-size: 1.08rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      background: rgba(5, 6, 7, 0.92);
+    }
+
+    .photo-card p.after-label {
+      background: var(--blue);
+      color: #041018;
+      border-top-color: var(--blue);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .about-card,
+    .contact-card {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-card h2,
+    .contact-card h2 {
+      color: var(--blue);
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .about-card p,
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .check-list li {
+      list-style: none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--white);
+    }
+
+    .contact-methods {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .contact-methods a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: grid;
+      gap: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--black);
+      color: var(--white);
+      font: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(158, 220, 255, 0.12);
+    }
+
+    .footer {
+      padding: 24px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 950px) {
+      .nav-links {
+        display: none;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .business-card-header {
+        width: min(100%, 760px);
+      }
+
+      .service-widgets,
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 52px 0;
+      }
+
+      .section-heading {
+        text-align: left;
+        margin-bottom: 24px;
+      }
+
+      .section-heading h2 {
+        font-size: 2.15rem;
+      }
+
+      .main-service {
+        padding: 24px;
+        border-radius: 20px;
+      }
+
+      .main-service h3 {
+        font-size: 2rem;
+      }
+
+      .main-service p {
+        font-size: 1rem;
+      }
+
+      .category-title {
+        gap: 10px;
+      }
+
+      .category-title h3 {
+        font-size: 0.82rem;
+        padding: 8px 12px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .header {
+        position: sticky;
+      }
+
+      .nav {
+        min-height: 66px;
+        gap: 10px;
+      }
+
+      .logo strong {
+        font-size: 1rem;
+      }
+
+      .logo span {
+        font-size: 0.7rem;
+        max-width: 160px;
+      }
+
+      .call-btn {
+        padding: 9px 10px;
+        min-height: 40px;
+        font-size: 0.78rem;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+
+      .hero {
+        padding: 14px 0 26px;
+      }
+
+      .business-card-header {
+        width: 100%;
+        border-radius: 14px;
+      }
+
+      .service-widgets,
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service {
+        min-height: auto;
+        padding: 22px;
+      }
+
+      .photo-card img {
+        height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      .photo-card p {
+        font-size: 1rem;
+        padding: 11px 12px;
+      }
+
+      .contact-card {
+        padding: 22px;
+      }
+
+      .contact-card h2 {
+        font-size: 2rem;
+      }
+
+      input,
+      select,
+      textarea {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .container {
+        width: min(100% - 18px, 1120px);
+      }
+
+      .logo span {
+        display: none;
+      }
+
+      .call-btn {
+        font-size: 0.72rem;
+        padding: 8px 9px;
+      }
+
+      .hero {
+        padding: 10px 0 22px;
+      }
+
+      .business-card-header {
+        border-radius: 12px;
+      }
+
+      .main-service,
+      .service,
+      .contact-card {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="Patiño Auto Detailing home">
+        <strong>Patiño</strong>
+        <span>Auto Detailing & Restoration</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="call-btn" id="languageToggle" type="button">Spanish</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="business-card-header">
+          <img src="patino-card-gfx.png" alt="Patiño Permanent Headlight Restoration Service business graphic" />
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="label">Our Services</p>
+          <h2>Simple services. Clean results.</h2>
+        </div>
+
+        <div class="services">
+          <article class="main-service">
+            <span class="badge">Auto Detailing Services</span>
+            <h3>Professional Vehicle Cleaning & Restoration</h3>
+            <p>
+              Interior detailing, upholstery cleaning, dashboard detailing, and headlight restoration completed carefully with professional equipment and attention to detail.
+            </p>
+          </article>
+
+          <div class="service-widgets">
+            <article class="service">
+              <span>🧼</span>
+              <h3>Basic Clean</h3>
+              <p>General interior wipe down, vacuuming, surface cleaning, and refresh service for maintaining a cleaner vehicle.</p>
+            </article>
+
+            <article class="service">
+              <span>✨</span>
+              <h3>Deep Clean</h3>
+              <p>Steam cleaning, upholstery care, dashboard detailing, vents, trim, carpets, cup holders, and deeper interior restoration.</p>
+            </article>
+
+            <article class="service">
+              <span>💡</span>
+              <h3>Headlight Restoration</h3>
+              <p>Cloudy and faded headlights cleaned, repaired, polished, and restored with clearcoat refinishing.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section gallery-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="label">Our Work</p>
+          <h2>Before and after results</h2>
+        </div>
+
+        <div class="category">
+          <div class="category-title"><h3>Interior Detailing</h3></div>
+          <div class="photo-grid">
+            <article class="photo-card before">
+              <img src="interior-before.jpg" alt="Vehicle interior before detailing" />
+              <p>Before</p>
+            </article>
+            <article class="photo-card after">
+              <img src="interior-after.jpg" alt="Vehicle interior after detailing" />
+              <p class="after-label">After</p>
+            </article>
+            <article class="photo-card before">
+              <img src="interior-before1.jpg" alt="Second vehicle interior before detailing" />
+              <p>Before</p>
+            </article>
+            <article class="photo-card after">
+              <img src="interior-after1.jpg" alt="Second vehicle interior after detailing" />
+              <p class="after-label">After</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="category">
+          <div class="category-title"><h3>Headlight Restoration</h3></div>
+          <div class="photo-grid">
+            <article class="photo-card before">
+              <img src="headlight-before-1.jpg" alt="First headlight set before restoration" />
+              <p>Before</p>
+            </article>
+            <article class="photo-card after">
+              <img src="headlight-after-1.jpg" alt="First headlight set after restoration" />
+              <p class="after-label">After</p>
+            </article>
+            <article class="photo-card before">
+              <img src="headlight-before-2.jpg" alt="Second headlight set before restoration" />
+              <p>Before</p>
+            </article>
+            <article class="photo-card after">
+              <img src="headlight-after-2.jpg" alt="Second headlight set after restoration" />
+              <p class="after-label">After</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section gallery-section">
+      <div class="container split"><div class="contact-card">
+          <h2>Quick request</h2>
+
+          <form id="contactForm">
+            <label>
+              Name
+              <input id="name" type="text" placeholder="Your name" required />
+            </label>
+
+            <label>
+              Phone Number
+              <input id="phone" type="tel" placeholder="Your phone number" required />
+            </label>
+
+            <label>
+              Service Needed
+              <select id="service" required>
+                <option value="">Select a service</option>
+                <option>Basic Clean</option>
+                <option>Deep Clean</option>
+                <option>Headlight Restoration</option>
+              </select>
+            </label>
+
+            <label>
+              Message
+              <textarea id="message" placeholder="Describe your vehicle and what service you are looking for."></textarea>
+            </label>
+
+            <button class="btn-primary" type="submit">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Patiño Auto Detailing & Restoration. Interior detailing, exterior detailing, and headlight restoration.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const languageToggle = document.getElementById("languageToggle");
+    let currentLanguage = "en";
+
+    const textMap = {
+      es: {
+        "Services": "Servicios",
+        "Our Work": "Trabajos",
+        "Contact": "Contacto",
+        "Our Services": "Servicios",
+        "Simple services. Clean results.": "Servicios simples. Resultados limpios.",
+        "Auto Detailing Services": "Servicios de Detallado Automotriz",
+        "Professional Vehicle Cleaning & Restoration": "Limpieza y Restauración Profesional de Vehículos",
+        "Interior detailing, upholstery cleaning, dashboard detailing, and headlight restoration completed carefully with professional equipment and attention to detail.": "Detallado interior, limpieza de tapicería, limpieza de tablero y restauración de faros realizados cuidadosamente con equipo profesional y atención al detalle.",
+        "Basic Clean": "Limpieza Básica",
+        "General interior wipe down, vacuuming, surface cleaning, and refresh service for maintaining a cleaner vehicle.": "Limpieza general interior, aspirado, limpieza de superficies y servicio de refresco para mantener el vehículo más limpio.",
+        "Deep Clean": "Limpieza Profunda",
+        "Steam cleaning, upholstery care, dashboard detailing, vents, trim, carpets, cup holders, and deeper interior restoration.": "Limpieza a vapor, cuidado de tapicería, detallado de tablero, ventilas, molduras, alfombras, portavasos y restauración interior más profunda.",
+        "Headlight Restoration": "Restauración de Faros",
+        "Cloudy and faded headlights cleaned, repaired, polished, and restored with clearcoat refinishing.": "Faros opacos o dañados limpiados, reparados, pulidos y restaurados con acabado de capa transparente.",
+        "Before and after results": "Resultados antes y después",
+        "Interior Detailing": "Detallado Interior",
+        "Before": "Antes",
+        "After": "Después",
+        "Quick request": "Solicitud rápida",
+        "Name": "Nombre",
+        "Phone Number": "Número de Teléfono",
+        "Service Needed": "Servicio Deseado",
+        "Select a service": "Seleccione un servicio",
+        "Message": "Mensaje",
+        "Send Request": "Enviar Solicitud",
+        "Patiño Auto Detailing & Restoration. Interior detailing, exterior detailing, and headlight restoration.": "Patiño Auto Detailing & Restoration. Detallado interior, detallado exterior y restauración de faros."
+      }
+    };
+
+    const reverseTextMap = Object.fromEntries(
+      Object.entries(textMap.es).map(([english, spanish]) => [spanish, english])
+    );
+
+    function translatePage(language) {
+      const map = language === "es" ? textMap.es : reverseTextMap;
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+
+      while (walker.nextNode()) {
+        nodes.push(walker.currentNode);
+      }
+
+      nodes.forEach((node) => {
+        const cleanText = node.nodeValue.trim();
+        if (map[cleanText]) {
+          node.nodeValue = node.nodeValue.replace(cleanText, map[cleanText]);
+        }
+      });
+
+      document.documentElement.lang = language;
+      currentLanguage = language;
+      languageToggle.textContent = language === "en" ? "Spanish" : "English";
+    }
+
+    languageToggle.addEventListener("click", () => {
+      translatePage(currentLanguage === "en" ? "es" : "en");
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
+
+      const body = `Hello, my name is ${name}.%0A%0APhone Number: ${phone}%0AService Needed: ${service}%0AMessage: ${message || "No additional message provided."}`;
+      window.location.href = `sms:7065089677?&body=${body}`;
+    });
+  </script>
+</body>
+</html>
